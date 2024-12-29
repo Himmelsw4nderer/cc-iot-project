@@ -1,7 +1,8 @@
 -- installer.lua
 local base_url = "https://raw.githubusercontent.com/Himmelsw4nderer/cc-iot-project/refs/heads/main/broker/" -- Replace with your repository URL
 local files = {
-    {url = "broker.lua", path = "broker.lua"},
+    { url = "broker.lua", path = "mqtt-broker/broker.lua" },
+    { url = "uninstaller.lua", path = "mqtt-broker/uninstaller.lua" },
 }
 
 -- Function to download a file
