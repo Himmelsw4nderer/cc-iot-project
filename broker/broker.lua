@@ -1,6 +1,3 @@
--- mqtt_broker.lua
-local rednet = require("rednet")
-
 -- Tabellen zum Verwalten von Topics und Clients
 local topics = {}
 

@@ -1,6 +1,3 @@
--- mqtt_client.lua
-local rednet = require("rednet")
-
 local brokerID = nil
 
 -- Funktion zum Verbinden mit dem Broker
