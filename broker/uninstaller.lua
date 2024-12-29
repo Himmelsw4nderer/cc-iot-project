@@ -1,9 +1,6 @@
 -- uninstaller.lua
 local files = {
-    "mqtt_broker.lua",
-    "mqtt_client.lua",
-    "utils/helper.lua",
-    "utils/config.lua",
+    "broker.lua",
 }
 
 -- Function to delete a file or directory
