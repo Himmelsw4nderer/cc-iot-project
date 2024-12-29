@@ -1,3 +1,6 @@
+-- Load the config
+local config = require("config")
+
 -- Tabellen zum Verwalten von Topics und Clients
 local topics = {}
 
@@ -7,18 +10,16 @@ local function handleMessage(senderID, message)
 
     if command == "CONNECT" then
         print("Client verbunden: " .. senderID)
-        rednet.send(senderID, {status = "connected"})
-
+        rednet.send(senderID, { status = "connected" })
     elseif command == "SUBSCRIBE" then
         print("Client " .. senderID .. " abonniert Topic: " .. topic)
         topics[topic] = topics[topic] or {}
         table.insert(topics[topic], senderID)
-
     elseif command == "PUBLISH" then
         print("Nachricht an Topic " .. topic .. ": " .. data)
         if topics[topic] then
             for _, clientID in ipairs(topics[topic]) do
-                rednet.send(clientID, {topic = topic, data = data})
+                rednet.send(clientID, { topic = topic, data = data })
             end
         end
     end

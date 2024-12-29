@@ -1,6 +1,9 @@
 -- uninstaller.lua
 local files = {
+    "base_config_handler.lua",
     "broker.lua",
+    "config.lua",
+    "uninstaller.lua",
 }
 
 -- Function to delete a file or directory
