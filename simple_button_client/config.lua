@@ -9,7 +9,7 @@ local default_config = {
     button_side = "top",
 }
 
-local configPath = "simple_button_client/client_config.cfg"
+local configPath = "simple_button_client/config.cfg"
 
 config_handler.ensureConfig(configPath, default_config)
 
