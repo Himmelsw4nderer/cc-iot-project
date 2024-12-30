@@ -1,13 +1,21 @@
-local base_client = {
-    brokerID = nil
-}
+local base_client = {}
+
+-- Konstruktor
+function base_client:new(o, modemSide, brokerID)
+    o = o or {}
+    setmetatable(o, self)
+    self.__index = self
+    self.brokerID = brokerID or nil
+    o:connect(modemSide, brokerID)
+    return o
+end
 
 -- Funktion zum Verbinden mit dem Broker
 function base_client.connect(modemSide, brokerID)
     rednet.open(modemSide) -- Netzwerkmodem an der "right"-Seite
     rednet.broadcast({ command = "CONNECT" })
     local senderID, message = rednet.receive()
-    if message and message.status == "connected" & senderID == brokerID then
+    if message and message.status == "connected" and senderID == brokerID then
         self.brokerID = senderID -- Save the broker ID in the object
         print("Mit Broker verbunden. Broker ID: " .. self.brokerID)
         return true

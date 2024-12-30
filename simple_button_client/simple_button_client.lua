@@ -1,7 +1,7 @@
 local base_client = require("base_client")
 local config = require("config")
 
-client = base_client.new(config.clientID)
+local client = base_client:new(nil, config.modemSide, config.brokerID)
 
 while not client:connect(config.modemSide, config.brokerID) do
     print("Verbindung fehlgeschlagen. Erneuter Versuch in 5 Sekunden.")
