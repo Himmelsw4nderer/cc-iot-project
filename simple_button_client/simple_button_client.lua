@@ -1,11 +1,13 @@
 local base_client = require("base_client")
 local config = require("config")
 
-while not base_client:connect(config.modemSide, config.brokerID) do
+client = base_client.new(config.clientID)
+
+while not client:connect(config.modemSide, config.brokerID) do
     print("Verbindung fehlgeschlagen. Erneuter Versuch in 5 Sekunden.")
     sleep(5)
 end
-    
+
 -- redstone_monitor.lua
 local lastState = redstone.getInput(config.button_side) -- Get the initial redstone state
 
@@ -22,10 +24,10 @@ while true do
     -- Check if the state has changed
     if newState ~= lastState then
         print("Redstone state changed on side " ..
-        config.button_side .. ": " .. tostring(lastState) .. " -> " .. tostring(newState))
+            config.button_side .. ": " .. tostring(lastState) .. " -> " .. tostring(newState))
 
         -- Send a message or perform an action
-        base_client:publish(config.base_topic .. "/" .. config.value_topic, tostring(newState))
+        client:publish(config.base_topic .. "/" .. config.value_topic, tostring(newState))
 
         -- Update the last state
         lastState = newState

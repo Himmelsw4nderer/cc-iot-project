@@ -2,11 +2,11 @@
 local base_url =
 "https://raw.githubusercontent.com/Himmelsw4nderer/cc-iot-project/refs/heads/main/"                  -- Replace with your repository URL
 local files = {
-    { url = "base_client/base_client.lua",                   path = "mqtt-client/base_client.lua" },
-    { url = "base_config_handler/base_config_handler.lua",   path = "mqtt-client/base_config_handler.lua" },
-    { url = "simple_button_client/simple_button_client.lua", path = "mqtt-client/simple_button_client.lua" },
-    { url = "simple_button_client/config.lua",               path = "mqtt-client/config.lua" },
-    { url = "simple_button_client/uninstaller.lua",          path = "mqtt-client/uninstaller.lua" },
+    { url = "base_client/base_client.lua",                   path = "simple_button_client/base_client.lua" },
+    { url = "base_config_handler/base_config_handler.lua",   path = "simple_button_client/base_config_handler.lua" },
+    { url = "simple_button_client/simple_button_client.lua", path = "simple_button_client/simple_button_client.lua" },
+    { url = "simple_button_client/config.lua",               path = "simple_button_client/config.lua" },
+    { url = "simple_button_client/uninstaller.lua",          path = "simple_button_client/uninstaller.lua" },
 }
 
 -- Function to download a file
