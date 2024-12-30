@@ -5,7 +5,7 @@ local default_config = {
     port = 1,
 }
 
-local configPath = "broker_config.cfg"
+local configPath = "cciot-broker/broker_config.cfg"
 
 config_handler.ensureConfig(configPath, default_config)
 
